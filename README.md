@@ -73,3 +73,21 @@ Content-Length: 116
     "price": 49.99
 }
 ```
+
+### Delete Request
+
+```
+curl http://localhost:8080/albums/2 \
+  --header "Content-Type: application/json" \
+  --request "DELETE" \
+```
+
+### Delete Response
+``` json
+{
+  "id": "2",
+  "title": "Jeru",
+  "artist": "Gerry Mulligan",
+  "price": 17.99
+}
+```
