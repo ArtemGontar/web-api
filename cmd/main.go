@@ -1,18 +1,37 @@
 package main
 
 import (
+	"flag"
+	"log"
 	"net/http"
 
+	"github.com/ArtemGontar/web-api/app/apiserver"
+	"github.com/ArtemGontar/web-api/app/entities"
 	"github.com/gin-gonic/gin"
 )
 
-var albums = []entities{
+var albums = []entities.Album{
 	{ID: "1", Title: "Blue Train", Artist: "John Coltrane", Price: 56.99},
 	{ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 17.99},
 	{ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
 }
 
+var (
+	configPath string
+)
+
+func init() {
+	flag.StringVar(&configPath, "config-path", "configs/apiserver.toml", "path to config file")
+}
+
 func main() {
+	flag.Parse()
+	config := apiserver.NewConfig()
+	s := apiserver.New(config)
+	if err := s.Start(); err != nil {
+		log.Fatal(err)
+	}
+
 	router := gin.Default()
 	router.GET("/albums", getAlbums)
 	router.GET("/albums/:id", getAlbumById)

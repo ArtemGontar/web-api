@@ -1,12 +1,12 @@
 package entities
 
-type album struct {
+type Album struct {
 	ID     string  `json:"id"`
 	Title  string  `json:"title"`
 	Artist string  `json:"artist"`
 	Price  float64 `json:"price"`
 }
 
-func New() *album {
-	return &album{}
+func New() *Album {
+	return &Album{}
 }
