@@ -6,3 +6,7 @@ type album struct {
 	Artist string  `json:"artist"`
 	Price  float64 `json:"price"`
 }
+
+func New() *album {
+	return &album{}
+}
