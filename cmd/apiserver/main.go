@@ -46,7 +46,7 @@ func getAlbums(c *gin.Context) {
 
 // postAlbums adds an album from JSON received in the request body.
 func postAlbums(c *gin.Context) {
-	var newAlbum album
+	var newAlbum entities.Album
 
 	// Call BindJSON to bind the received JSON to
 	// newAlbum.
