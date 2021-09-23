@@ -4,7 +4,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/ArtemGontar/web-api/app/apiserver"
+	"github.com/ArtemGontar/web-api/internal/app/apiserver"
 )
 
 var (

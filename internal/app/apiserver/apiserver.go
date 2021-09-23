@@ -31,4 +31,6 @@ func (s *ApiServer) configureLogger() error {
 	}
 
 	s.logger.SetLevel(level)
+
+	return nil
 }
