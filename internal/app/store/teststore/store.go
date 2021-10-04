@@ -1,8 +1,6 @@
 package teststore
 
 import (
-	"database/sql"
-
 	"github.com/ArtemGontar/web-api/internal/app/model"
 	"github.com/ArtemGontar/web-api/internal/app/store"
 )
@@ -11,7 +9,7 @@ type Store struct {
 	userRepository *UserRepository
 }
 
-func New(db *sql.DB) *Store {
+func New() *Store {
 	return &Store{}
 }
 
