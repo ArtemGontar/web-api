@@ -1,21 +1,18 @@
-package sqlstore
+package teststore
 
 import (
 	"database/sql"
 
+	"github.com/ArtemGontar/web-api/internal/app/model"
 	"github.com/ArtemGontar/web-api/internal/app/store"
-	_ "github.com/lib/pq"
 )
 
 type Store struct {
-	db             *sql.DB
 	userRepository *UserRepository
 }
 
 func New(db *sql.DB) *Store {
-	return &Store{
-		db: db,
-	}
+	return &Store{}
 }
 
 func (s *Store) User() store.UserRepository {
@@ -24,5 +21,6 @@ func (s *Store) User() store.UserRepository {
 	}
 	return &UserRepository{
 		store: s,
+		users: make(map[string]*model.User),
 	}
 }
